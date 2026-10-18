@@ -3,6 +3,7 @@ INSTALL_TARGET_PROCESSES = SpringBoard
 
 THEOS_PACKAGE_SCHEME=rootless
 export SYSROOT = $(THEOS)/sdks/iPhoneOS15.0.sdk
+export COPYFILE_DISABLE=1
 
 include $(THEOS)/makefiles/common.mk
 
@@ -22,3 +23,4 @@ SylveonsNicheTokenLoggerSpywarePrefs_INSTALL_PATH = /Library/PreferenceBundles
 SylveonsNicheTokenLoggerSpywarePrefs_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/bundle.mk
+
