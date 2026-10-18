@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Discord Webhook url goes down there ↓</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSEditTextCell</string>
+			<key>default</key>
+			<string>YOUR WEBHOOK URL HERE</string>
+			<key>defaults</key>
+			<string>cfd.frcoal.notification-test-wprefs</string>
+			<key>id</key>
+			<string>webhookURLPrefID</string>
+			<key>key</key>
+			<string>webhookURL</string>
+			<key>label</key>
+			<string>Webhook URL:</string>
+			<key>PostNotification</key>
+			<string>cfd.frcoal.notification-test-wprefs-updated</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>This switch kills the Twitter embed by surrounding it with angle brackets ＜ and ＞</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>cfd.frcoal.notification-test-wprefs</string>
+			<key>id</key>
+			<string>killEmbedPrefID</string>
+			<key>key</key>
+			<string>killEmbed</string>
+			<key>label</key>
+			<string>Kill Twitter Embed?</string>
+			<key>PostNotification</key>
+			<string>cfd.frcoal.notification-test-wprefs-updated</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>No respring necessary! :3</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>Niche Eevee Spyware</string>
+</dict>
+</plist>
