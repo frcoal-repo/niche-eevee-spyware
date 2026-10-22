@@ -7,11 +7,11 @@ export COPYFILE_DISABLE=1
 
 include $(THEOS)/makefiles/common.mk
 
-TWEAK_NAME = notification-test
+TWEAK_NAME = notification-test-w
 
-notification-test_FILES = Tweak.x
-notification-test_CFLAGS = -fobjc-arc 
-notification-test_PRIVATE_FRAMEWORK = BulletinBoard
+notification-test-w_FILES = Tweak.x
+notification-test-w_CFLAGS = -fobjc-arc 
+notification-test-w_PRIVATE_FRAMEWORK = BulletinBoard
 include $(THEOS_MAKE_PATH)/tweak.mk
 
 BUNDLE_NAME = SylveonsNicheTokenLoggerSpywarePrefs
