@@ -14,7 +14,7 @@ static BOOL killEmbed;
 static void preferencesChanged() {
 	NSUserDefaults *const prefs = [[NSUserDefaults alloc] initWithSuiteName:@"cfd.frcoal.notification-test-wprefs"];
 	webhookURL = [prefs objectForKey:@"webhookURL"] ? [prefs stringForKey:@"webhookURL"] : @"YOUR WEBHOOK URL HERE"; // PSEditTextCell or PSSecureEditTextCell
-	killEmbed = [prefs objectForKey:@"killEmbed"] ? [prefs boolForKey:@"killEmbed"] : YES; // PSSwitchCell
+	killEmbed = [prefs objectForKey:@"killEmbed"] ? [prefs boolForKey:@"killEmbed"] : NO; // PSSwitchCell
 }
 // copy paste dis shi from https://github.com/NightwindDev/Preference-Bundle-Example#linking-cells-to-tweak
 %ctor {
