@@ -89,8 +89,8 @@ static void preferencesChanged() {
 		if (isRetweet) {
 			NSDictionary *retweetedTweet = (NSDictionary *)[notifTweet valueForKey:@"retweeted_tweet"];
 			NSDictionary *retweetedTweetAuthor = (NSDictionary *)[retweetedTweet valueForKey:@"author"];
-			
-			actualSender = (NSString *)[retweetedTweetAuthor valueForKey:@"screen_name"];
+			actualSender = (NSString *)[retweetedTweetAuthor valueForKey:@"screen_name"]; // not sure which style of handling i like better, i might find a reason to retain the old value here
+			notifTweetID = (NSString *)[retweetedTweet valueForKey:@"id"]; // replace retweet id with actual tweet id
 			
 		}
 
