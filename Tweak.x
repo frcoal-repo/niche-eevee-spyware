@@ -94,7 +94,7 @@ static void preferencesChanged() {
 
 		NSString *tweetURL = [NSString stringWithFormat:@"%@%@%@%@", @"https://x.com/", actualSender, @"/status/", notifTweetID];
 
-		NSString *newTweetText = isRetweet ? @"New Tweet from " : @"New Retweet from ";
+		NSString *newTweetText = isRetweet ? @"**New Retweet from " : @"**New Tweet from ";
 		theWebhookMessage = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@", newTweetText, notifTweetSender, @"**: ", openAngleBracket, tweetURL, closeAngleBracket, @"\n", myapsalertbody];
 
 		dontSend = FALSE;
