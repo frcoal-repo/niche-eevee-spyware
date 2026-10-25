@@ -34,7 +34,41 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>This switch kills the Twitter embed by surrounding it with angle brackets ＜ and ＞</string>
+			<string>You can replace x.com with an embed fixer of your choice here</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSegmentCell</string>
+			<key>label</key>
+			<string>Embed Fixer</string>
+			<key>id</key>
+			<string>embedFixerPrefID</string>
+			<key>key</key>
+			<string>embedFixerInt</string>
+			<key>validTitles</key>
+			<array>
+				<string>No fixer (x.com)</string>
+				<string>fxtwitter.com</string>
+				<string>vxtwitter.com</string>
+			</array>
+			<key>validValues</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+			</array>
+			<key>default</key>
+			<integer>0</integer>
+			<key>defaults</key>
+			<string>cfd.frcoal.notification-test-wprefs</string>
+			<key>PostNotification</key>
+			<string>cfd.frcoal.notification-test-wprefs-updated</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>This switch kills the Twitter embed by surrounding it with angle brackets ＜ and ＞ (making the above setting basically useless)</string>
 		</dict>
 		<dict>
 			<key>cell</key>

@@ -10,11 +10,13 @@
 
 static NSString *webhookURL; // use on line 105
 static BOOL killEmbed;
+static NSInteger embedFixerInt;
 
 static void preferencesChanged() {
 	NSUserDefaults *const prefs = [[NSUserDefaults alloc] initWithSuiteName:@"cfd.frcoal.notification-test-wprefs"];
 	webhookURL = [prefs objectForKey:@"webhookURL"] ? [prefs stringForKey:@"webhookURL"] : @"YOUR WEBHOOK URL HERE"; // PSEditTextCell or PSSecureEditTextCell
 	killEmbed = [prefs objectForKey:@"killEmbed"] ? [prefs boolForKey:@"killEmbed"] : NO; // PSSwitchCell
+	embedFixerInt = [prefs objectForKey:@"embedFixerInt"] ? [prefs integerForKey:@"embedFixerInt"] : 0;
 }
 // copy paste dis shi from https://github.com/NightwindDev/Preference-Bundle-Example#linking-cells-to-tweak
 %ctor {
@@ -94,7 +96,15 @@ static void preferencesChanged() {
 			
 		}
 
-		NSString *tweetURL = [NSString stringWithFormat:@"%@%@%@%@", @"https://x.com/", actualSender, @"/status/", notifTweetID];
+		NSString *embedFixerDomain = @"x.com";
+		//NSLog(@"%@%ld", @"Notification Logger says: The current embed fixer is ", embedFixerInt);
+		if (embedFixerInt==1) { // yanderedev save me i don't know how to use switch cases in obj c
+			embedFixerDomain = @"fxtwitter.com";
+		} else if (embedFixerInt==2) {
+			embedFixerDomain = @"vxtwitter.com";
+		}
+
+		NSString *tweetURL = [NSString stringWithFormat:@"%@%@%@%@%@%@", @"https://", embedFixerDomain, @"/", actualSender, @"/status/", notifTweetID];
 
 		NSString *newTweetText = isRetweet ? @"**New Retweet from " : @"**New Tweet from ";
 		theWebhookMessage = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@", newTweetText, notifTweetSender, @"**: ", openAngleBracket, tweetURL, closeAngleBracket, @"\n", myapsalertbody];
