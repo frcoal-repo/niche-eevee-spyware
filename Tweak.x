@@ -88,7 +88,9 @@ static void preferencesChanged() {
 		NSString *actualSender = notifTweetSender;
 		if (isRetweet) {
 			NSDictionary *retweetedTweet = (NSDictionary *)[notifTweet valueForKey:@"retweeted_tweet"];
-			actualSender = (NSString *)[retweetedTweet valueForKey:@"screen_name"];
+			NSDictionary *retweetedTweetAuthor = (NSDictionary *)[retweetedTweet valueForKey:@"author"];
+			
+			actualSender = (NSString *)[retweetedTweetAuthor valueForKey:@"screen_name"];
 			
 		}
 
