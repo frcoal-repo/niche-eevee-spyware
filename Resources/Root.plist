@@ -23,6 +23,10 @@
 			<string>webhookURL</string>
 			<key>label</key>
 			<string>Webhook URL:</string>
+			<key>isURL</key>
+			<true/>
+			<key>noAutoCorrect</key>
+			<true/>
 			<key>PostNotification</key>
 			<string>cfd.frcoal.notification-test-wprefs-updated</string>
 		</dict>

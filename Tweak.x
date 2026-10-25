@@ -80,14 +80,22 @@ static void preferencesChanged() {
 		//these are unique to Twitter notifications
 		NSString *notifTweetSender = (NSString *)[myAPSMessageUserInfo valueForKey:@"D"];
 		NSString *notifTweetID = [NSString stringWithFormat:@"%@", [myAPSMessageUserInfo valueForKey:@"tid"]]; //not sure if this is unsigned long SUS SUS SUS
-		//NSDictionary *notifTweet = (NSDictionary *)[myAPSMessageUserInfo valueForKey:@"tweet"];
+		NSDictionary *notifTweet = (NSDictionary *)[myAPSMessageUserInfo valueForKey:@"tweet"];
 		// notifTweetBody = [NSString myAPSMessageUserInfo valueForKey:@"D"] ?: @"(no tweet body)";
 
-		NSString *tweetURL = [NSString stringWithFormat:@"%@%@%@%@", @"https://x.com/", notifTweetSender, @"/status/", notifTweetID];
+		BOOL isRetweet = (NSDictionary *)[notifTweet valueForKey:@"retweeted_tweet"] ? YES : NO;
 
-		theWebhookMessage = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@", @"**New Tweet from ", notifTweetSender, @"**: ", openAngleBracket, tweetURL, closeAngleBracket, @"\n", myapsalertbody];
+		NSString *actualSender = notifTweetSender;
+		if (isRetweet) {
+			NSDictionary *retweetedTweet = (NSDictionary *)[notifTweet valueForKey:@"retweeted_tweet"];
+			actualSender = (NSString *)[retweetedTweet valueForKey:@"screen_name"];
+			
+		}
 
-		//todo: check for retweet (not really critical but it's fine i'll do them for now)
+		NSString *tweetURL = [NSString stringWithFormat:@"%@%@%@%@", @"https://x.com/", actualSender, @"/status/", notifTweetID];
+
+		NSString *newTweetText = isRetweet ? @"New Tweet from " : @"New Retweet from ";
+		theWebhookMessage = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@", newTweetText, notifTweetSender, @"**: ", openAngleBracket, tweetURL, closeAngleBracket, @"\n", myapsalertbody];
 
 		dontSend = FALSE;
 	}
